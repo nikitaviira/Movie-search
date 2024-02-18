@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body, #app, html {
+  @apply h-full;
+}
+
+body, #app {
+    @apply overflow-x-hidden bg-neutral-100;
+}
+
+:root {
+  --navbar-height: 90px;
+  --container-height: calc(100% - var(--navbar-height));
+}
