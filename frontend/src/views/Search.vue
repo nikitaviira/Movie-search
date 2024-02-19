@@ -135,7 +135,9 @@
   }
 
   async function navigateToPaginatedSearch() {
-    await router.push({ name: 'search', query: { query: query.value, page: 1 } });
+    if (query.value) {
+      await router.push({ name: 'search', query: { query: query.value, page: 1 } });
+    }
   }
 
   async function navigateToDetailsPage(imdbId: string) {

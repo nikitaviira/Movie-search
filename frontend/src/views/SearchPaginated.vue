@@ -2,7 +2,7 @@
   <div class="flex w-full h-fit justify-center">
     <Loader v-if="loading" />
     <div
-      v-if="searchResult"
+      v-if="searchResult && searchResult.movies.length > 0"
       class="max-w-[1200px] grid auto-rows-min bg-white md:grid-cols-3 sm:grid-cols-2 gap-4 px-10"
     >
       <p class="md:col-span-3 sm:col-span-2 sm:text-2xl text-[18px] my-5">
@@ -32,6 +32,15 @@
         @pageChanged="(p) => currentPage = p"
       />
     </div>
+    <div
+      v-else
+      class="flex flex-col items-center"
+    >
+      <p class="my-5 text-xl font-bold">
+        No movies were for this query
+      </p>
+      <HomePageLink />
+    </div>
   </div>
 </template>
 
@@ -44,6 +53,7 @@
   import Pagination from '@/components/Pagination.vue';
   import MovieCard from '@/components/MovieCard.vue';
   import HeartIcon from '@/assets/icons/HeartIcon.vue';
+  import HomePageLink from '@/components/HomePageLink.vue';
 
   const router = useRouter();
   const { query, page } = useRoute().query;
