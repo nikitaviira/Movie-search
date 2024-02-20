@@ -9,3 +9,4 @@
 
 1. Install and run [Docker Desktop](https://docs.docker.com/get-docker/)
 2. Run "run-app.sh" script
+3. Open "localhost:5173"
